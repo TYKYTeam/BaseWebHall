@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GridViewFragmentStyle">
+
+    <GridView
+        android:id="@+id/gridView"
+        style="@style/BaseGridViewStyle"
+        android:numColumns="4" />
+
+</RelativeLayout>

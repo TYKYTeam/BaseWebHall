@@ -1,3 +1,22 @@
 <resources>
 
+    //单独页面Fragment样式
+    <style name="BaseGridViewStyle">
+        <item name="android:scrollbars">none</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:listSelector">@drawable/gridview_selector</item>
+        <item name="android:padding">@dimen/space_10</item>
+    </style>
+
+    <!--单独页面Fragment样式-->
+    <style name="BaseFragmentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!--单独页面Fragment样式-->
+    <style name="GridViewFragmentStyle" parent="BaseFragmentStyle">
+        <item name="android:background">@color/gray</item>
+    </style>
 </resources>

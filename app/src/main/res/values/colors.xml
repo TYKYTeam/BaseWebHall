@@ -16,6 +16,7 @@
     <color name="graywhite">#F5F5F5</color>
     <color name="grayslate">#708090</color>
     <color name="lightblue">#0083FF</color>
+    <color name="transparent">#00000000</color>
 
     <!--基本样式设置-->
     <color name="colorPrimary">#3F51B5</color>

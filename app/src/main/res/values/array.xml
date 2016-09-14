@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="onlinebusiness_arrays">
+        <item>个人办事</item>
+        <item>企业办事</item>
+        <item>部门办事</item>
+        <item>申报事项</item>
+    </string-array>
+</resources>

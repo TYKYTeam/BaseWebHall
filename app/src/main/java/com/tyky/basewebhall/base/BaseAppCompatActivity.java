@@ -1,16 +1,13 @@
 package com.tyky.basewebhall.base;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.tyky.basewebhall.AppManager;
 import com.tyky.basewebhall.R;
@@ -19,7 +16,6 @@ import com.tyky.basewebhall.interf.BaseViewInterface;
 import org.kymjs.kjframe.utils.StringUtils;
 
 import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 
 /**
  * Created by lianghuiyong on 2016/5/25.
@@ -28,31 +24,34 @@ import de.greenrobot.event.EventBus;
 public abstract class BaseAppCompatActivity extends AppCompatActivity
         implements BaseViewInterface {
 
-    private EventBus eventBus;
+    private View view;
 
     //绑定布局
-    protected abstract int getLayoutId();
+    protected abstract View getLayoutId();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
+
+        //set View
+        setView(getLayoutId());
+        setContentView(getView());
+
+        //activity进栈
         AppManager.getAppManager().addActivity(this);
 
         ButterKnife.bind(this);     //注解注册
-
-        //注册EventBus
-        eventBus = EventBus.getDefault();
-        eventBus.register(this);
-
 
         initView();
         initData();
     }
 
-    //注册eventbus必须有此方法
-    public void onEventMainThread(String string){
+    public View getView() {
+        return view;
+    }
 
+    public void setView(View view) {
+        this.view = view;
     }
 
     /**
@@ -121,9 +120,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);   //注解注销
-
-        //注销
-        eventBus.unregister(this);
     }
 
     /**

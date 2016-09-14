@@ -8,4 +8,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppThemeFull" parent="Base.AppTheme">
+        <!-- AppCompat主题 全屏方法 -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>

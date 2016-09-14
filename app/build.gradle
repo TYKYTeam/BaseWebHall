@@ -22,11 +22,18 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.android.support:cardview-v7:24.2.0'        // 边缘圆角，背景色
-    compile 'com.android.support:design:24.2.0'             // 谷歌Design Support库
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:cardview-v7:24.2.1'        // 边缘圆角，背景色
+    compile 'com.android.support:design:24.2.1'             // 谷歌Design Support库
     compile 'org.kymjs.kjframe:kjframe:2.6'                 // 安卓orm库
+
     compile 'com.jakewharton:butterknife:7.0.1'             // 注释框架
     compile 'com.zhy:percent-support-extends:1.1.1'         // 百分比布局
-    compile 'de.greenrobot:eventbus:2.4.0'
+
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'com.google.code.gson:gson:2.6.2'
 }
