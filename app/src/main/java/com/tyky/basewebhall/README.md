@@ -41,7 +41,7 @@
 **9. util**
 - 常用的工具类
 
-**10. util.widget**
+**10. widget**
 - dialog弹框等小部件
 
 ```

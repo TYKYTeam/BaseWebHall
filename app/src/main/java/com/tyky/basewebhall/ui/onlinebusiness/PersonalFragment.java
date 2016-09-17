@@ -8,7 +8,6 @@ import com.tyky.basewebhall.adapter.GridViewAdapter;
 import com.tyky.basewebhall.base.BaseFragment;
 import com.tyky.basewebhall.base.BaseGridViewFragment;
 
-import butterknife.Bind;
 
 /**
  * Created by lianghuiyong@outlook.com

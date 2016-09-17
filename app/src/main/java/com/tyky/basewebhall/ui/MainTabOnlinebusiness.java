@@ -19,8 +19,7 @@ import com.tyky.basewebhall.ui.onlinebusiness.PersonalFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import butterknife.BindView;
 
 /**
  * Created by lianghuiyong@outlook.com
@@ -33,9 +32,9 @@ public class MainTabOnlinebusiness extends BaseFragment {
     private String[] tv_Titles;
     private List<Fragment> tab_fragments;
 
-    @Bind(R.id.tab_title)
+    @BindView(R.id.tab_title)
     TabLayout tabTitle;
-    @Bind(R.id.tab_viewpager)
+    @BindView(R.id.tab_viewpager)
     ViewPager tabViewpager;
 
     @Override
@@ -70,19 +69,5 @@ public class MainTabOnlinebusiness extends BaseFragment {
         tabViewpager.setAdapter(adapter);
         //tabViewpager.setOffscreenPageLimit(4);//设置缓存页
         tabTitle.setupWithViewPager(tabViewpager);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 }

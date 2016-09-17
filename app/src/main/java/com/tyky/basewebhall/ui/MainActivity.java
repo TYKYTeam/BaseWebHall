@@ -1,10 +1,8 @@
 package com.tyky.basewebhall.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,26 +13,18 @@ import android.widget.TextView;
 
 import com.tyky.basewebhall.R;
 import com.tyky.basewebhall.base.BaseAppCompatActivity;
-import com.tyky.basewebhall.ui.MainTabConvenience;
-import com.tyky.basewebhall.ui.MainTabInteraction;
-import com.tyky.basewebhall.ui.MainTabOnlinebusiness;
-import com.tyky.basewebhall.ui.MainTabPersonal;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseAppCompatActivity implements TabHost.OnTabChangeListener {
 
-    @Bind(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(android.R.id.tabhost)
+    @BindView(android.R.id.tabhost)
     FragmentTabHost tabhost;
-    @Bind(R.id.toolbar_tv)
-    TextView toolbarTv;
-
-    private ActionBarDrawerToggle toggle;
+    @BindView(R.id.city)
+    TextView city;
 
     private String mTitles[] = {"网上办事", "便民服务", "政民互动", "个人中心"};
 
@@ -58,21 +48,23 @@ public class MainActivity extends BaseAppCompatActivity implements TabHost.OnTab
 
     @Override
     protected View getLayoutId() {
-        return View.inflate(this, R.layout.activity_appmain, null);
+        return View.inflate(this, R.layout.activity_app_main, null);
     }
 
 
     @Override
     public void initView() {
-        super.setToolbarCentel(false, "");
-
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close);
-        toggle.syncState();
-        drawerLayout.addDrawerListener(toggle);
+        setMainToolbar();
 
         initTab();
+    }
+
+    /**
+     * 设置toolbar
+     */
+    private void setMainToolbar() {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false); //取消显示默认标题
     }
 
     @Override
@@ -108,7 +100,13 @@ public class MainActivity extends BaseAppCompatActivity implements TabHost.OnTab
     //切换底部导航栏时改变标题
     @Override
     public void onTabChanged(String s) {
-        toolbarTv.setText(s);
+        //toolbarTv.setText(s);
+    }
+
+    @OnClick(R.id.city)
+    public void onClick() {
+        Intent intent = new Intent(this,ChooseCityActivity.class);
+        startActivity(intent);
     }
 
 }

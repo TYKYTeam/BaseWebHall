@@ -56,7 +56,6 @@ public abstract class BaseFragment extends Fragment implements BaseViewInterface
 
     @Override
     public void onDestroyView() {
-        ButterKnife.unbind(this);
         super.onDestroyView();
     }
 

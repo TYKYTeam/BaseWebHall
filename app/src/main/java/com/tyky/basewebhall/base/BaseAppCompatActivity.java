@@ -27,6 +27,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity
     private View view;
 
     //绑定布局
+    //View.inflate(this, R.layout.activity_app_main, null)
     protected abstract View getLayoutId();
 
     @Override
@@ -92,8 +93,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity
         }
 
         //自定义居中标题
-        TextView toolbar_tv = (TextView) findViewById(R.id.toolbar_tv);
-        toolbar_tv.setText(title);
+        TextView mTitle = (TextView) findViewById(R.id.title);
+        mTitle.setText(title);
 
         setSupportActionBar(toolbar);   //该设置要放setTitle之后，否则setTitle会无效
         getSupportActionBar().setDisplayShowTitleEnabled(false); //取消显示默认标题
@@ -119,7 +120,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);   //注解注销
     }
 
     /**
